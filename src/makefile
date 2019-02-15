@@ -6,12 +6,15 @@ WAL = -Wall
 
 all: main clean
 
-main: display.o
-	$(CC) main.c display.o $(OUT) $(INC) $(WAL)
+main: screen.o dda.o
+	$(CC) main.c screen.o dda.o $(OUT) $(INC) $(WAL)
 
-display.o: 
-	$(CC) $(OBJ) display.c $(INC) $(WAL)
+dda.o: 
+	$(CC) $(OBJ) dda.c $(INC) $(WAL)
+
+screen.o: 
+	$(CC) $(OBJ) screen.c $(INC) $(WAL)
 
 #clean .o files
 clean:
-	del display.o
+	del screen.o dda.o

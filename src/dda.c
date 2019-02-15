@@ -1,10 +1,9 @@
 /*
  *  DDA Implementation
  * ----------------------------------------------------------------------------
- *  All prototypes of functions of the DDA algorithm.
+ *  Implementatio of all functions needed for the DDA algorithm.
  * ----------------------------------------------------------------------------
  *  Author: Renan Bomtempo
  * ----------------------------------------------------------------------------
  */
-
 #include "dda.h"
