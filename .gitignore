@@ -44,4 +44,5 @@
 
 # VS code
 *.code-workspace
+**/.vscode
 **/bin
