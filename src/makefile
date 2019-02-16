@@ -1,20 +1,24 @@
-CC  = gcc
-INC = -I ..\include
-OBJ = -c
-OUT = -o ..\bin\dda
-WAL = -Wall
+#FLAGS
+CFLAGS  = gcc -Wall -g -I ..\include
+OBJ 	= -c
+OUT 	= -o ..\bin\test
 
 all: main clean
 
-main: screen.o dda.o
-	$(CC) main.c screen.o dda.o $(OUT) $(INC) $(WAL)
+#BINARY FILE
+main: screen.o dda.o point.o
+	$(CFLAGS) main.c screen.o dda.o point.o $(OUT)
 
+#OBJECT FILES
 dda.o: 
-	$(CC) $(OBJ) dda.c $(INC) $(WAL)
+	$(CFLAGS) $(OBJ) dda.c
+
+point.o: 
+	$(CFLAGS) $(OBJ) point.c
 
 screen.o: 
-	$(CC) $(OBJ) screen.c $(INC) $(WAL)
+	$(CFLAGS) $(OBJ) screen.c
 
-#clean .o files
+#CLEAN .o FILES
 clean:
-	del screen.o dda.o
+	del /S *.o

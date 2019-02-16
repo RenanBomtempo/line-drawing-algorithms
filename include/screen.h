@@ -1,7 +1,7 @@
 /*
- *  Screen Interface
+ *  Screen ADT Interface
  * ----------------------------------------------------------------------------
- *  All prototypes of functions related to drawing points to the console.
+ *  All prototypes of functions related to drawing the screen to the console.
  * ----------------------------------------------------------------------------
  *  Author: Renan Bomtempo
  * ----------------------------------------------------------------------------
@@ -9,15 +9,11 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h> 
-
 /*
- * A pixel can be ON(35) or OFF(45).
+ * A pixel can be ON (o) or OFF ( ).
  */
 enum PixelState {
-    ON  = '#',
+    ON  = '0',
     OFF = '-'
 };
 
@@ -27,7 +23,7 @@ enum PixelState {
 typedef struct Screen {
     int width;
     int height;
-    char **pixels;
+    char **pixels;  /*Pixel 2D array*/
 }   screen;
 
 /* 
@@ -43,7 +39,7 @@ void PrintScreen ( screen *sc );
 /*
  * Get the state of a given pixel. It can be ON(35) or OFF(45).
  */
-char GetPixelState ( screen *scr, int x_coord, int y_coord );
+char GetPixelState ( screen scr, int x_coord, int y_coord );
 
 /* 
  * Set the state of a given pixel.
@@ -54,5 +50,10 @@ void SetPixelState ( screen *scr, int x_coord, int y_coord, char state );
  * Free all memory previoulsy allocated for the screen structure.
  */
 void TerminateScreen ( screen *scr );
+
+/*
+ * Delay the programs execution for a given number of seconds.
+ */
+void Delay ( float number_of_seconds );
 
 #endif // SCREEN_H

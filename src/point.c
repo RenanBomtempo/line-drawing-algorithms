@@ -1,17 +1,15 @@
 /*
- *  Digital Differential Analyser Interface
+ *  Point ADT Implementation
  * ----------------------------------------------------------------------------
- *  All prototypes of functions of the DDA algorithm.
+ *  All implementations of functions that manipulate the point data structure.
  * ----------------------------------------------------------------------------
  *  Author: Renan Bomtempo
  * ----------------------------------------------------------------------------
  */
-#ifndef DDA_H
-#define DDA_H
+#include "point.h"
 
-/*
- * Draw a line on the screen between points p1 and p2.
- */
-void DrawLineUsingDDA ( screen *scr, point p1, point p2 );
-
-#endif // DDA_H
+void SetPointCoordinates ( point *p, int x, int y ) 
+{
+    p->x = x;
+    p->y = y;
+}
