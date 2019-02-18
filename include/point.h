@@ -19,4 +19,10 @@ typedef struct Point {
  */
 void SetPointCoordinates ( point *p, int x, int y );
 
+/*
+ * Returns 1 if the given points are the same. Else returns 0.
+ */
+char IsSamePoint (point p1, point p2);
+
+
 #endif // POINT_H

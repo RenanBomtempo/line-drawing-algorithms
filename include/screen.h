@@ -15,6 +15,16 @@
 enum PixelState {
     ON  = '0',
     OFF = '-'
+};      
+
+/*
+ * Position of the origin point (0,0) when printing the screen
+ */
+enum ScreenOriginPosition {
+    TOP_LEFT, 
+    TOP_RIGHT,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT
 };
 
 /*
@@ -55,5 +65,16 @@ void TerminateScreen ( screen *scr );
  * Delay the programs execution for a given number of seconds.
  */
 void Delay ( float number_of_seconds );
+
+/*
+ * Set all pixels on the screen OFF.
+ */
+void ClearScreen ( screen *scr );
+
+/*
+ * Choose the position of the point (0,0) on the screen.
+ */
+void SetScreenOriginPoisition ( char origin_position );
+
 
 #endif // SCREEN_H
