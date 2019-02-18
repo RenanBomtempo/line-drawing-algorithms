@@ -15,7 +15,7 @@
  *  - Clear the screen;
  *  - Choose the position of the origin point on the screen;
  */
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
 #include <errno.h>
 #include <time.h>
