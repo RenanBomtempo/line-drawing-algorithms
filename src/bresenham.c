@@ -6,7 +6,7 @@
  *  Version: 0.0
  *  Author: Renan Bomtempo
  * ----------------------------------------------------------------------------
- *  *This version only plots if p1 is to the left of p2 in the cartesian plane representation*
+ *  *This version only plots lines within the first octant of the plane*
  */
 #include <stdlib.h>
 #include <stdio.h>
@@ -30,14 +30,12 @@ void DrawLineUsingBresenham ( screen *scr, point p1, point p2 )
 
         //Axis of maximum movement
         char driving_axis = abs(dx) >= abs(dy) ? X : Y;
-
+        
         if (driving_axis == X) {
             //X is the driving axis 
             error_bound = dy - dx;
 
             while (current_x != p2.x) {
-                /*printf("(%d, %d)\n", current_x, current_y);
-                printf("error_bound:\t%d\n", error_bound);*/
                 SetPixelState(scr, current_x, current_y, ON);
                 if (error_bound >= 0) {
                     error_bound -= dx;
@@ -51,8 +49,6 @@ void DrawLineUsingBresenham ( screen *scr, point p1, point p2 )
             error_bound = dx - dy;
 
             while (current_y != p2.y) {
-                /*printf("(%d, %d)\n", current_x, current_y);
-                printf("error_bound:\t%d\n", error_bound);*/
                 SetPixelState(scr, current_x, current_y, ON);
                 if (error_bound >= 0) {
                     error_bound -= dy;

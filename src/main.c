@@ -26,7 +26,7 @@ int main ( int argc, char const *argv[] )
     point p1, p2, p3;
 
     SetPointCoordinates(&p1, 0, 0);
-    SetPointCoordinates(&p2, 3, 5);
+    SetPointCoordinates(&p2, 9, 3);
     SetPointCoordinates(&p3, 5, 3);
 
     /*DrawLineUsingDDA(scr, p2, p1);

@@ -3,7 +3,7 @@
  * ----------------------------------------------------------------------------
  *  Implementation of all functions related to drawing the screen to the console.
  * ----------------------------------------------------------------------------
- *  Version: 0.3.2
+ *  Version: 0.3.3
  *  Author: Renan Bomtempo
  * ----------------------------------------------------------------------------
  *  - Create a new screen;
@@ -69,17 +69,13 @@ screen *NewScreen ( int width, int height )
 void PrintScreen ( screen *scr ) 
 {
     _CONSOLE_LOG_(Printing Pixels)
-
-    char buffer;
     
     switch (g_origin_position)
     {
         case BOTTOM_LEFT:
             for (int i = scr->height-1; i >= 0; i--) {
                 for (int j = 0; j < scr->width; j++) {
-                    buffer = GetPixelState(*scr, j, i);
-                    if (buffer == ON) Delay(_DELAY_TIME_);
-                    printf(_PIXEL_LAYOUT_, buffer);
+                    PrintPixel(GetPixelState(*scr, j, i));
                 }
                 printf("\n");
             }
@@ -88,9 +84,7 @@ void PrintScreen ( screen *scr )
         case BOTTOM_RIGHT:
             for (int i = scr->height-1; i >= 0; i--) {
                 for (int j = scr->width-1; j >= 0 ; j--) {
-                    buffer = GetPixelState(*scr, j, i);
-                    if (buffer == ON) Delay(_DELAY_TIME_);
-                    printf(_PIXEL_LAYOUT_, buffer);
+                    PrintPixel(GetPixelState(*scr, j, i));
                 }
                 printf("\n");
             }
@@ -99,9 +93,7 @@ void PrintScreen ( screen *scr )
         case TOP_LEFT:
             for (int i = 0; i < scr->height; i++) {
                 for (int j = 0; j < scr->width; j++) {
-                    buffer = GetPixelState(*scr, j, i);
-                    if (buffer == ON) Delay(_DELAY_TIME_);
-                    printf(_PIXEL_LAYOUT_, buffer);
+                    PrintPixel(GetPixelState(*scr, j, i));
                 }
                 printf("\n");
             }
@@ -110,9 +102,7 @@ void PrintScreen ( screen *scr )
         case TOP_RIGHT:
              for (int i = 0; i < scr->height; i++) {
                 for (int j = scr->width-1; j >= 0 ; j--) {
-                    buffer = GetPixelState(*scr, j, i);
-                    if (buffer == ON) Delay(_DELAY_TIME_);
-                    printf(_PIXEL_LAYOUT_, buffer);
+                    PrintPixel(GetPixelState(*scr, j, i));
                 }
                 printf("\n");
             }
@@ -122,9 +112,7 @@ void PrintScreen ( screen *scr )
             //BOTTOM_LEFT
             for (int i = scr->height-1; i >= 0; i--) {
                 for (int j = 0; j < scr->width; j++) {
-                    buffer = GetPixelState(*scr, j, i);
-                    if (buffer == ON) Delay(_DELAY_TIME_);
-                    printf(_PIXEL_LAYOUT_, buffer);
+                    PrintPixel(GetPixelState(*scr, j, i));
                 }
                 printf("\n");
             }
@@ -181,4 +169,10 @@ void ClearScreen ( screen *scr )
 void SetScreenOriginPoisition ( char origin_position ) 
 {
     g_origin_position = origin_position;
+}
+
+void PrintPixel ( char state )
+{
+    if (state == ON) Delay(_DELAY_TIME_);
+    printf(_PIXEL_LAYOUT_, state);
 }

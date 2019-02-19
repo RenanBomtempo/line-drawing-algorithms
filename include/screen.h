@@ -33,7 +33,7 @@ enum ScreenOriginPosition {
 typedef struct Screen {
     int width;
     int height;
-    char **pixels;  /*Pixel 2D array*/
+    char **pixels;  /*2D Pixel array*/
 }   screen;
 
 /* 
@@ -76,5 +76,9 @@ void ClearScreen ( screen *scr );
  */
 void SetScreenOriginPoisition ( char origin_position );
 
+/*
+ * Prints one pixel state to the screen.
+ */
+void PrintPixel ( char state );
 
 #endif // SCREEN_H
