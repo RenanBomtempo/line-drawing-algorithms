@@ -7,15 +7,12 @@ SRC		= .\src\\
 all: main clean
 
 #BINARY FILE
-main: screen.o dda.o point.o bresenham.o
-	$(CFLAGS) $(SRC)main.c screen.o dda.o point.o bresenham.o $(OUT)
+main: screen.o point.o ldalg.o
+	$(CFLAGS) $(SRC)main.c screen.o point.o ldalg.o $(OUT)
  
 #OBJECT FILES
-bresenham.o: 
-	$(CFLAGS) $(OBJ) $(SRC)bresenham.c 
-
-dda.o: 
-	$(CFLAGS) $(OBJ) $(SRC)dda.c 
+ldalg.o: 
+	$(CFLAGS) $(OBJ) $(SRC)ldalg.c 
 
 point.o: 
 	$(CFLAGS) $(OBJ) $(SRC)point.c 

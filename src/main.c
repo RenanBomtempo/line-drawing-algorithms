@@ -13,29 +13,41 @@
 #include <errno.h>
 #include "point.h"
 #include "screen.h"
-#include "dda.h"
-#include "bresenham.h"
+#include "ldalg.h"
 
-#define _SCREEN_WIDTH_      80
-#define _SCREEN_HEIGHT_     45
+#define _SCREEN_WIDTH_      30
+#define _SCREEN_HEIGHT_     30
 
 int main ( int argc, char const *argv[] ) 
 {
     screen *scr = NewScreen(_SCREEN_WIDTH_, _SCREEN_HEIGHT_);
-        
+
     point p1, p2, p3;
 
     SetPointCoordinates(&p1, 0, 0);
-    SetPointCoordinates(&p2, 9, 3);
+    SetPointCoordinates(&p2, 25, 20);
     SetPointCoordinates(&p3, 5, 3);
 
     /*DrawLineUsingDDA(scr, p2, p1);
     DrawLineUsingDDA(scr, p1, p3);
     DrawLineUsingDDA(scr, p3, p2);
     PrintScreen(scr);*/
-
-    DrawLineUsingBresenham(scr, p1, p2);
+    
+    DigitalDifferentialAnalyser(scr, p1, p2);
     PrintScreen(scr);
+    ClearScreen(scr);
+
+    Bresenham(scr, p1, p2);
+    PrintScreen(scr);
+    ClearScreen(scr);
+
+    IntMidpoint(scr, p1, p2);
+    PrintScreen(scr);
+    ClearScreen(scr);
+
+    FloatMidpoint(scr, p1, p2);
+    PrintScreen(scr);
+    ClearScreen(scr);
 
     TerminateScreen(scr);
 
